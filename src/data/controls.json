@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "photo_url": "https://i.pravatar.cc/128?u=65295650e68b1342f00087d8",
+            "first_name": "Patterson",
+            "last_name": "Mejia",
+            "phone": "(822) 577-2809",
+            "control_date": "2023-10-14"
+        },
+        {
+            "photo_url": "https://i.pravatar.cc/128?u=65295650b58a5cce15929f59",
+            "first_name": "Calderon",
+            "last_name": "Richardson",
+            "phone": "(991) 463-2026",
+            "control_date": "2023-10-12"
+        },
+        {
+            "photo_url": "https://i.pravatar.cc/128?u=65295650248bb9454f97fa18",
+            "first_name": "Abbott",
+            "last_name": "Love",
+            "phone": "(832) 552-3437",
+            "control_date": "2023-10-13"
+        },
+        {
+            "photo_url": "https://i.pravatar.cc/128?u=65295650ed1fd837004e4db2",
+            "first_name": "Brady",
+            "last_name": "Wallace",
+            "phone": "(933) 515-2921",
+            "control_date": "2023-10-11"
+        }
+    ]
+}
