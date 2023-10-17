@@ -19,6 +19,7 @@ export default {
       controlsData: [],
       calendarData: [],
       treatmentData: [],
+      patientCount: 0,
     };
   },
   created() {
@@ -27,6 +28,7 @@ export default {
     });
     PatientListService.getPatientList().then((response) => {
       this.patientsData = response;
+      this.patientCount = this.patientsData.data.length;
     });
   },
 };
@@ -38,7 +40,10 @@ export default {
     <div class="container mt-4">
       <div class="row">
         <div id="patient-list" class="col-md-3">
-          <PatientListCard :patients="patientsData.data" />
+          <PatientListCard
+            :patients="patientsData.data"
+            :patientCount="patientCount"
+          />
         </div>
         <div class="col-md-9">
           <div class="campaign">

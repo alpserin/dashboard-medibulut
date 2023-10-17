@@ -4,7 +4,10 @@
       <font-awesome-icon :icon="['far', 'user']" />
 
       <div>
-        <h2>Hasta Listesi</h2>
+        <h2>
+          <font-awesome-icon :icon="['far', 'calendar']" />Kontrol Tarihi
+          Yaklaşan Hastalar
+        </h2>
         <h5>{{ patientCount }} Hasta</h5>
         <button @click="addNewPatient" class="add-button">
           <font-awesome-icon :icon="['fas', 'plus']" />
@@ -37,7 +40,6 @@
 export default {
   props: {
     patients: Array,
-    patientCount: Number,
   },
 };
 </script>

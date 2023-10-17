@@ -6,7 +6,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
 
-library.add(faPlus, faUser, fas);
+library.add(faPlus, faUser, fas, far);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
