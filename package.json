@@ -20,7 +20,8 @@
     "chart.js": "^4.4.0",
     "concurrently": "^8.2.1",
     "json-server": "^0.17.4",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-chartjs": "^5.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",

@@ -1,25 +1,33 @@
 <script>
 import TopBar from "./components/TopBar.vue";
-import Card from "./components/Card.vue";
 import AnnouncementCard from "./components/AnnouncementCard.vue";
 import AnnouncementService from "./services/AnnouncementService.js";
 import PatientListCard from "./components/PatientListCard.vue";
 import PatientListService from "./services/PatientListService.js";
+import ControlService from "./services/ControlService.js";
+import ControlCard from "./components/ControlCard.vue";
+import TreatmentCard from "./components/TreatmentCard.vue";
+import TreatmentService from "./services/TreatmentService.js";
+import CalendarCart from "./components/CalendarCart.vue";
+import CalendarService from "./services/CalendarService.js";
 
 export default {
   components: {
     PatientListCard,
-    Card,
     AnnouncementCard,
+    ControlCard,
+    TreatmentCard,
+    CalendarCart,
   },
   data() {
     return {
       patientsData: { data: [] },
       announcementsData: { data: [] },
-      controlsData: [],
-      calendarData: [],
-      treatmentData: [],
+      controlsData: { data: [] },
+      calendarData: { data: [] },
+      treatmentData: { data: [] },
       patientCount: 0,
+      controlCount: 0,
     };
   },
   created() {
@@ -29,6 +37,16 @@ export default {
     PatientListService.getPatientList().then((response) => {
       this.patientsData = response;
       this.patientCount = this.patientsData.data.length;
+    });
+    ControlService.getControlList().then((response) => {
+      this.controlsData = response.data;
+      this.controlCount = this.controlsData.data.length;
+    });
+    TreatmentService.getTreatments().then((response) => {
+      this.treatmentData = response.data.data;
+    });
+    CalendarService.getCalendar().then((response) => {
+      this.calendarData = response.data;
     });
   },
 };
@@ -58,7 +76,10 @@ export default {
 
           <div class="row">
             <div class="col-md-6">
-              <Card title="Kontrol Tarihi Yaklaşan Hastalar" />
+              <ControlCard
+                :patientCount="controlCount"
+                :patients="controlsData.data"
+              />
             </div>
 
             <div class="col-md-6">
@@ -66,11 +87,13 @@ export default {
             </div>
 
             <div class="col-md-6">
-              <Card title="Tedaviler" :data="treatmentData" />
+              <div>
+                <TreatmentCard :data="data" :options="options" />
+              </div>
             </div>
 
             <div class="col-md-6">
-              <Card title="Ajanda" :data="calendarData" />
+              <CalendarCart :calendar="calendarData.data" />
             </div>
           </div>
         </div>
@@ -131,6 +154,5 @@ html {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  /*d-flex justify-content-between align-items-center mb-3 */
 }
 </style>

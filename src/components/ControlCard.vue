@@ -1,18 +1,13 @@
 <template>
-  <div class="patient-list-card">
+  <div class="control-card">
     <div class="header">
-      <font-awesome-icon :icon="['far', 'user']" />
-
       <div>
-        <h2>
+        <div class="title">
           <font-awesome-icon :icon="['far', 'calendar']" />Kontrol Tarihi
           Yaklaşan Hastalar
-        </h2>
+        </div>
+
         <h5>{{ patientCount }} Hasta</h5>
-        <button @click="addNewPatient" class="add-button">
-          <font-awesome-icon :icon="['fas', 'plus']" />
-          Yeni Hasta
-        </button>
       </div>
 
       <div class="patient-list">
@@ -30,6 +25,12 @@
             <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
             <p>{{ patient.phone }}</p>
           </div>
+
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            disabled
+          ></button>
         </div>
       </div>
     </div>
@@ -40,6 +41,7 @@
 export default {
   props: {
     patients: Array,
+    patientCount: Number,
   },
 };
 </script>
@@ -49,16 +51,8 @@ export default {
   display: block;
 }
 
-.add-button {
-  font-size: 12px;
-  background-color: rgb(30, 33, 33);
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 130px;
-  height: 40px;
+.title {
+  font-size: 24px;
 }
 
 .patient-list {
@@ -67,12 +61,13 @@ export default {
   overflow-y: auto;
 }
 
-.patient-list-card {
+.control-card {
   background-color: #f2f2f2;
   padding: 20px;
   overflow: hidden; /* Hide overflow content */
   overflow-y: auto;
-  height: 430px; /* Set a fixed height for the scrollable area */
+  height: 300px; /* Set a fixed height for the scrollable area */
+  width: 300px;
 }
 h5 {
   font-size: 14px;
@@ -86,5 +81,11 @@ h5 {
   width: 40px;
   height: 40px;
   border-radius: 20px;
+}
+
+button {
+  border-radius: 40px;
+  width: 20px;
+  height: 20px;
 }
 </style>
