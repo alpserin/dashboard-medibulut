@@ -15,10 +15,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.treatment-card {
-  background-color: #e6e6e6;
-  width: 300px;
-  height: 300px;
-}
-</style>
+<style scoped></style>

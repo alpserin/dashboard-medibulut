@@ -48,6 +48,9 @@ export default {
 </script>
 
 <style scoped>
+.control-card {
+  overflow-y: auto;
+}
 .header {
   display: flex;
 }
@@ -65,14 +68,6 @@ h2 {
   overflow-y: auto;
 }
 
-.control-card {
-  background-color: #f2f2f2;
-  padding: 20px;
-  overflow: hidden; /* Hide overflow content */
-  overflow-y: auto;
-  height: 300px; /* Set a fixed height for the scrollable area */
-  width: 300px;
-}
 h5 {
   font-size: 12px;
 }

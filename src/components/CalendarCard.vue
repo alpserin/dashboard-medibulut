@@ -1,25 +1,20 @@
 <template>
-  <div class="card">
-    <div class="card-body">
+  <div class="calendar-card">
+    <div class="header">
       <h2>
-        <font-awesome-icon :icon="['far', 'note-sticky']" size="xs" />Ajanda
+        <font-awesome-icon :icon="['far', 'note-sticky']" size="xs" />
+        Ajanda
       </h2>
-
       <h5>{{ calendarCount }} Hatırlatma</h5>
+    </div>
+
+    <div class="card-body">
       <div v-for="cal in calendar" :key="cal.title">
         <div>{{ cal.data }}</div>
         <h5>{{ cal.title }}</h5>
         <p>{{ cal.body }}</p>
       </div>
     </div>
-    <button
-      id="button-d"
-      type="button"
-      class="btn btn-outline-secondary"
-      disabled
-    >
-      Detay
-    </button>
   </div>
 </template>
 
@@ -33,11 +28,13 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  background-color: #e6e6e6;
-  padding: 20px;
-  margin: 10px;
-  width: 200px;
+.calendar-card {
+  overflow-y: auto;
+  overflow-y: hidden;
+}
+
+.card-body {
+  overflow-y: auto;
 }
 
 #button-d {

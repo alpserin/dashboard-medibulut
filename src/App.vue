@@ -78,15 +78,16 @@ export default {
   <div class="dashboard">
     <div id="app" class="app">
       <TopBar />
-      <div class="container mt-4">
-        <div class="row">
-          <div id="patient-list" class="col-md-3">
-            <PatientListCard
-              :patients="patientsData.data"
-              :patientCount="patientCount"
-            />
-          </div>
-          <div class="col-md-9">
+
+      <div class="row">
+        <div id="patient-list-card" class="col-md-3">
+          <PatientListCard
+            :patients="patientsData.data"
+            :patientCount="patientCount"
+          />
+        </div>
+        <div class="col-md-9">
+          <div class="right-side">
             <div class="campaign">
               <div>
                 <font-awesome-icon
@@ -96,29 +97,30 @@ export default {
               </div>
               <button class="btn btn-primary">Detay</button>
             </div>
-
-            <div class="row">
-              <div class="col-md-6">
+            <div class="top-cards">
+              <div id="card" class="col-md-6">
                 <ControlCard
                   :patientCount="controlCount"
                   :patients="controlsData.data"
                 />
               </div>
 
-              <div class="col-md-6">
+              <div id="card" class="col-md-6">
                 <AnnouncementCard
                   :announcements="announcementsData.data"
                   :announcementCount="announcementCount"
                 />
               </div>
+            </div>
 
-              <div class="col-md-6">
+            <div class="bottom-cards">
+              <div id="card" class="col-md-6">
                 <div class="pie-chart">
                   <highcharts :options="pieChartOptions"></highcharts>
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div id="card" class="col-md-6">
                 <CalendarCard
                   :calendar="calendarData.data"
                   :calendarCount="calendarCount"
@@ -133,33 +135,50 @@ export default {
 </template>
 
 <style scoped>
-html,
-body {
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
-  min-width: 100%;
-  background-size: contain;
+.row {
+  background-color: rgb(242, 244, 248);
 }
 
-.card {
+.right-side {
+  display: block;
+  justify-content: space-around;
+  margin-left: 50px;
+}
+
+#card {
+  width: 400px;
+  background-color: white;
+  height: 430px;
   padding: 20px;
-  margin: 0;
-  width: calc(60%);
-  height: 300px;
-  overflow-y: auto; /* Add a scrollbar for overflow content */
+  overflow-y: auto;
+}
+
+.top-cards {
+  display: flex;
+}
+
+.bottom-cards {
+  display: flex;
 }
 
 .campaign {
+  background-color: white;
   padding: 7px;
   display: flex;
   border-radius: 5px;
-  border-color: black;
-  border-width: 1px;
-  border-style: groove;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  margin-left: 8px;
+}
+
+.col-md-6 {
+  border-radius: 8px;
+  width: 500px;
+  margin: 10px;
+}
+
+.pie-chart {
+  width: 430px;
 }
 </style>

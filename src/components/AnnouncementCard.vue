@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="announcement-card">
     <div class="card-body">
       <h2>
         <font-awesome-icon :icon="['fas', 'bullhorn']" size="xs" />Duyurular
@@ -32,11 +32,8 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  background-color: #e6e6e6;
-  padding: 20px;
-  margin: 10px;
-  width: 200px;
+.announcement-card {
+  overflow-y: auto;
 }
 
 #button-d {
