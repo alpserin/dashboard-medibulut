@@ -39,16 +39,19 @@
         :key="patient.first_name + patient.last_name"
         class="patient"
       >
-        <img
-          :src="patient.photo_url"
-          alt="Patient Photo"
-          class="patient-photo"
-        />
-        <div class="patient-info">
-          <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
-          <p>{{ patient.phone }}</p>
-          <hr />
+        <div class="patient-container">
+          <img
+            :src="patient.photo_url"
+            alt="Patient Photo"
+            class="patient-photo"
+          />
+          <div class="patient-info">
+            <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
+            <p>{{ patient.phone }}</p>
+          </div>
         </div>
+
+        <div class="patient-separator"></div>
       </div>
     </div>
   </div>
@@ -72,14 +75,6 @@ export default {
   margin-right: 60px;
 }
 
-.patient-list {
-  height: 380px;
-  max-height: 100%;
-  min-height: 0;
-  font-size: 10px;
-  overflow-y: auto;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -99,6 +94,25 @@ export default {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 3px;
+}
+
+.patient-list {
+  height: 380px;
+  max-height: 100%;
+  min-height: 0;
+  font-size: 10px;
+  overflow-y: auto;
+}
+
+.patient-container {
+  display: flex;
+  margin-top: 9px;
+}
+
+.patient-separator {
+  height: 1px;
+  background-color: #ccc;
+  margin: 5px 0;
 }
 
 .patientCount {
@@ -122,20 +136,25 @@ export default {
 h5 {
   font-size: 15px;
   font-weight: 700;
+  margin-bottom: 1px;
 }
 
 .patient {
   display: flex;
   height: 55px;
-  margin-top: 1px;
+  border-bottom: 1px solid #ccc;
+}
+
+.patient hr {
+  padding-bottom: 15px;
 }
 
 .patient-photo {
-  width: 35px;
-  height: 35px;
+  width: 33px;
+  height: 33px;
   border-radius: 20px;
   margin-right: 8px;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .search-input {

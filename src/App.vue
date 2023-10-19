@@ -94,6 +94,16 @@ export default {
               <button class="btn btn-primary">Detay</button>
             </div>
 
+            <div class="fast-access">
+              <h5>Hızlı Erişim</h5>
+              <div>
+                <button type="button" class="btn btn-light">
+                  <font-awesome-icon :icon="['fas', 'shapes']" />
+                  Düzen
+                </button>
+              </div>
+            </div>
+
             <div class="top-cards">
               <div id="card" class="col-md-6">
                 <ControlCard
@@ -132,6 +142,10 @@ export default {
 </template>
 
 <style scoped>
+.dashboard {
+  overflow-x: hidden;
+}
+
 .row {
   background-color: rgb(242, 244, 248);
 }
@@ -143,7 +157,7 @@ export default {
 }
 
 #card {
-  width: 400px;
+  width: 440px;
   background-color: white;
   height: 430px;
   padding: 20px;
@@ -165,8 +179,22 @@ export default {
   border-radius: 5px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   margin-left: 8px;
+}
+
+.fast-access {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-left: 8px;
+  margin-top: 8px;
+}
+
+#layout-button {
+  background-color: rgb(242, 244, 248);
+  border-radius: 10px;
+  border-color: rgb(114, 114, 114);
 }
 
 .col-md-6 {
