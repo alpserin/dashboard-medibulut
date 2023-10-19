@@ -8,7 +8,7 @@ import ControlService from "./services/ControlService.js";
 import ControlCard from "./components/ControlCard.vue";
 import TreatmentCard from "./components/TreatmentCard.vue";
 import TreatmentService from "./services/TreatmentService.js";
-import CalendarCart from "./components/CalendarCart.vue";
+import CalendarCard from "./components/CalendarCard.vue";
 import CalendarService from "./services/CalendarService.js";
 import PieChart from "./components/PieChart.vue";
 import HighchartsVue from "highcharts-vue";
@@ -21,18 +21,23 @@ export default {
     AnnouncementCard,
     ControlCard,
     TreatmentCard,
-    CalendarCart,
+    CalendarCard,
     highcharts: Chart,
   },
   data() {
     return {
       patientsData: { data: [] },
-      announcementsData: { data: [] },
-      controlsData: { data: [] },
-      calendarData: { data: [] },
-      treatmentData: { data: [] },
       patientCount: 0,
+
+      announcementsData: { data: [] },
+      announcementCount: 0,
+
+      controlsData: { data: [] },
       controlCount: 0,
+
+      calendarData: { data: [] },
+      calendarCount: 0,
+
       pieChartOptions: pieChartOptions,
     };
   },
@@ -40,6 +45,8 @@ export default {
   created() {
     AnnouncementService.getAnnouncements().then((response) => {
       this.announcementsData = response.data;
+      this.announcementCount = this.announcementsData.data.length;
+      console.log(this.announcementCount);
     });
     PatientListService.getPatientList().then((response) => {
       this.patientsData = response;
@@ -61,6 +68,7 @@ export default {
     });
     CalendarService.getCalendar().then((response) => {
       this.calendarData = response.data;
+      this.calendarCount = this.calendarData.data.length;
     });
   },
 };
@@ -97,15 +105,23 @@ export default {
             </div>
 
             <div class="col-md-6">
-              <AnnouncementCard :announcements="announcementsData.data" />
-            </div>
-
-            <div class="pie-chart">
-              <div><highcharts :options="pieChartOptions"></highcharts></div>
+              <AnnouncementCard
+                :announcements="announcementsData.data"
+                :announcementCount="announcementCount"
+              />
             </div>
 
             <div class="col-md-6">
-              <CalendarCart :calendar="calendarData.data" />
+              <div class="pie-chart">
+                <highcharts :options="pieChartOptions"></highcharts>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <CalendarCard
+                :calendar="calendarData.data"
+                :calendarCount="calendarCount"
+              />
             </div>
           </div>
         </div>
@@ -166,5 +182,8 @@ html {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.pie-chart {
 }
 </style>

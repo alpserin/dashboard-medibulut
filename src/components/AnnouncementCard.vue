@@ -2,6 +2,8 @@
   <div class="card">
     <div class="card-body">
       <h2>Duyurular</h2>
+      <h5>{{ announcementCount }} Yeni Duyuru</h5>
+
       <div v-for="announcement in announcements" :key="announcement.title">
         <h5>{{ announcement.title }}</h5>
         <p>{{ announcement.body }}</p>
@@ -22,6 +24,7 @@
 export default {
   props: {
     announcements: Array,
+    announcementCount: Number,
   },
 };
 </script>
@@ -36,5 +39,9 @@ export default {
 
 #button-d {
   width: 70px;
+}
+
+h5 {
+  font-size: 14px;
 }
 </style>

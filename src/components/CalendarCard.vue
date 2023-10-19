@@ -2,6 +2,8 @@
   <div class="card">
     <div class="card-body">
       <h2>Ajanda</h2>
+
+      <h5>{{ calendarCount }} Hatırlatma</h5>
       <div v-for="cal in calendar" :key="cal.title">
         <div>{{ cal.data }}</div>
         <h5>{{ cal.title }}</h5>
@@ -23,6 +25,7 @@
 export default {
   props: {
     calendar: Array,
+    calendarCount: Number,
   },
 };
 </script>
@@ -37,5 +40,9 @@ export default {
 
 #button-d {
   width: 70px;
+}
+
+h5 {
+  font-size: 14px;
 }
 </style>
