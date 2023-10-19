@@ -46,12 +46,12 @@
             class="patient-photo"
           />
           <div class="patient-info">
-            <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
-            <p>{{ patient.phone }}</p>
+            <h5 class="patient-name">
+              {{ patient.first_name }} {{ patient.last_name }}
+            </h5>
+            <p class="patient-phone">{{ patient.phone }}</p>
           </div>
         </div>
-
-        <div class="patient-separator"></div>
       </div>
     </div>
   </div>
@@ -70,8 +70,8 @@ export default {
 .patient-list-card {
   background-color: #ffffff;
   padding: 20px;
-  height: 560px;
-  width: 400px;
+  height: 580px;
+  width: 440px;
   margin-right: 60px;
 }
 
@@ -106,19 +106,14 @@ export default {
 
 .patient-container {
   display: flex;
-  margin-top: 9px;
-}
-
-.patient-separator {
-  height: 1px;
-  background-color: #ccc;
-  margin: 5px 0;
+  margin-top: 7px;
 }
 
 .patientCount {
   font-size: 14px;
   font-weight: 400;
-  margin: 0px;
+  margin: 1px;
+  color: rgb(112, 112, 112);
 }
 
 .add-button {
@@ -133,10 +128,14 @@ export default {
   height: 40px;
 }
 
-h5 {
-  font-size: 15px;
+.patient-name {
+  font-size: 17px;
   font-weight: 700;
-  margin-bottom: 1px;
+  margin-bottom: 0px;
+}
+
+.patient-phone {
+  font-size: 13px;
 }
 
 .patient {
@@ -150,11 +149,11 @@ h5 {
 }
 
 .patient-photo {
-  width: 33px;
-  height: 33px;
+  width: 35px;
+  height: 35px;
   border-radius: 20px;
   margin-right: 8px;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .search-input {

@@ -95,11 +95,11 @@ export default {
             </div>
 
             <div class="fast-access">
-              <h5>Hızlı Erişim</h5>
+              <h5 class="fast-access-text">Hızlı Erişim</h5>
               <div>
                 <button type="button" class="btn btn-light">
                   <font-awesome-icon :icon="['fas', 'shapes']" />
-                  Düzen
+                  <strong>Düzen</strong>
                 </button>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default {
 .right-side {
   display: block;
   justify-content: space-around;
-  margin-left: 50px;
+  margin-left: 120px;
 }
 
 #card {
@@ -188,13 +188,17 @@ export default {
   justify-content: space-between;
   margin-right: 20px;
   margin-left: 8px;
-  margin-top: 8px;
+  margin-top: 18px;
 }
 
-#layout-button {
-  background-color: rgb(242, 244, 248);
-  border-radius: 10px;
-  border-color: rgb(114, 114, 114);
+.fast-access-text {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+strong {
+  font-weight: 600;
+  margin-left: 6px;
 }
 
 .col-md-6 {
