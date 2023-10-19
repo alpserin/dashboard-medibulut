@@ -14,13 +14,13 @@ export default {};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 30px;
   background-color: #333;
   color: white;
 }
 
 .detail-button {
-  background-color: #4caf50;
+  background-color: #d21818;
   color: white;
   border: none;
   padding: 10px 20px;

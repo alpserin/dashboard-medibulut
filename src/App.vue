@@ -6,11 +6,9 @@ import PatientListCard from "./components/PatientListCard.vue";
 import PatientListService from "./services/PatientListService.js";
 import ControlService from "./services/ControlService.js";
 import ControlCard from "./components/ControlCard.vue";
-import TreatmentCard from "./components/TreatmentCard.vue";
 import TreatmentService from "./services/TreatmentService.js";
 import CalendarCard from "./components/CalendarCard.vue";
 import CalendarService from "./services/CalendarService.js";
-import PieChart from "./components/PieChart.vue";
 import HighchartsVue from "highcharts-vue";
 import { Chart } from "highcharts-vue";
 import { pieChartOptions } from "./pieChartOptions.js";
@@ -20,7 +18,6 @@ export default {
     PatientListCard,
     AnnouncementCard,
     ControlCard,
-    TreatmentCard,
     CalendarCard,
     highcharts: Chart,
   },
@@ -97,6 +94,7 @@ export default {
               </div>
               <button class="btn btn-primary">Detay</button>
             </div>
+
             <div class="top-cards">
               <div id="card" class="col-md-6">
                 <ControlCard
