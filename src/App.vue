@@ -10,6 +10,10 @@ import TreatmentCard from "./components/TreatmentCard.vue";
 import TreatmentService from "./services/TreatmentService.js";
 import CalendarCart from "./components/CalendarCart.vue";
 import CalendarService from "./services/CalendarService.js";
+import PieChart from "./components/PieChart.vue";
+import HighchartsVue from "highcharts-vue";
+import { Chart } from "highcharts-vue";
+import { pieChartOptions } from "./pieChartOptions.js";
 
 export default {
   components: {
@@ -18,6 +22,7 @@ export default {
     ControlCard,
     TreatmentCard,
     CalendarCart,
+    highcharts: Chart,
   },
   data() {
     return {
@@ -28,8 +33,10 @@ export default {
       treatmentData: { data: [] },
       patientCount: 0,
       controlCount: 0,
+      pieChartOptions: pieChartOptions,
     };
   },
+
   created() {
     AnnouncementService.getAnnouncements().then((response) => {
       this.announcementsData = response.data;
@@ -43,7 +50,14 @@ export default {
       this.controlCount = this.controlsData.data.length;
     });
     TreatmentService.getTreatments().then((response) => {
-      this.treatmentData = response.data.data;
+      const newData = response.data.data;
+      console.log(response.data);
+
+      const transformedData = newData.map((item) => ({
+        name: item.title,
+        y: item.count,
+      }));
+      this.pieChartOptions.series[0].data = transformedData;
     });
     CalendarService.getCalendar().then((response) => {
       this.calendarData = response.data;
@@ -86,10 +100,8 @@ export default {
               <AnnouncementCard :announcements="announcementsData.data" />
             </div>
 
-            <div class="col-md-6">
-              <div>
-                <TreatmentCard :data="data" :options="options" />
-              </div>
+            <div class="pie-chart">
+              <div><highcharts :options="pieChartOptions"></highcharts></div>
             </div>
 
             <div class="col-md-6">

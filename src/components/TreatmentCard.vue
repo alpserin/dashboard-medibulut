@@ -1,17 +1,17 @@
 <template>
   <div class="treatment-card">
     <div>tedaviler</div>
-    <Pie />
+    <div>
+      <PieChart />
+    </div>
   </div>
 </template>
 
 <script>
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "vue-chartjs";
+import PieChart from "./PieChart.vue";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
 export default {
-  components: Pie,
+  components: PieChart,
 };
 </script>
 
