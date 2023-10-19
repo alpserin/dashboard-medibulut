@@ -6,27 +6,28 @@
       <div>
         <h2>Hasta Listesi</h2>
         <h5>{{ patientCount }} Hasta</h5>
-        <button @click="addNewPatient" class="add-button">
-          <font-awesome-icon :icon="['fas', 'plus']" />
-          Yeni Hasta
-        </button>
       </div>
 
-      <div class="patient-list">
-        <div
-          v-for="patient in patients"
-          :key="patient.first_name + patient.last_name"
-          class="patient"
-        >
-          <img
-            :src="patient.photo_url"
-            alt="Patient Photo"
-            class="patient-photo"
-          />
-          <div class="patient-info">
-            <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
-            <p>{{ patient.phone }}</p>
-          </div>
+      <button @click="addNewPatient" class="add-button">
+        <font-awesome-icon :icon="['fas', 'plus']" />
+        Yeni Hasta
+      </button>
+    </div>
+    <hr />
+    <div class="patient-list">
+      <div
+        v-for="patient in patients"
+        :key="patient.first_name + patient.last_name"
+        class="patient"
+      >
+        <img
+          :src="patient.photo_url"
+          alt="Patient Photo"
+          class="patient-photo"
+        />
+        <div class="patient-info">
+          <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
+          <p>{{ patient.phone }}</p>
         </div>
       </div>
     </div>
@@ -44,9 +45,13 @@ export default {
 
 <style scoped>
 .header {
-  display: block;
+  display: flex;
+  justify-content: space-between;
 }
 
+h2 {
+  font-size: 24px;
+}
 .add-button {
   font-size: 12px;
   background-color: rgb(30, 33, 33);
@@ -55,23 +60,22 @@ export default {
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 5px;
-  width: 130px;
+  width: 100px;
   height: 40px;
 }
-
+.patient-list-card {
+  background-color: #f2f2f2;
+  padding: 20px;
+  height: 430px;
+}
 .patient-list {
-  max-height: 100%; /* Make the list scrollable within the fixed height */
+  height: 300px;
+  max-height: 100%;
+  min-height: 0;
   font-size: 10px;
   overflow-y: auto;
 }
 
-.patient-list-card {
-  background-color: #f2f2f2;
-  padding: 20px;
-  overflow: hidden; /* Hide overflow content */
-  overflow-y: auto;
-  height: 430px; /* Set a fixed height for the scrollable area */
-}
 h5 {
   font-size: 14px;
 }

@@ -1,7 +1,9 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h2>Duyurular</h2>
+      <h2>
+        <font-awesome-icon :icon="['fas', 'bullhorn']" size="xs" />Duyurular
+      </h2>
       <h5>{{ announcementCount }} Yeni Duyuru</h5>
 
       <div v-for="announcement in announcements" :key="announcement.title">

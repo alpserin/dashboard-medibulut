@@ -1,37 +1,38 @@
 <template>
   <div class="control-card">
     <div class="header">
+      <font-awesome-icon :icon="['far', 'calendar']" />
       <div>
         <div class="title">
-          <font-awesome-icon :icon="['far', 'calendar']" />Kontrol Tarihi
-          Yaklaşan Hastalar
+          <h2>Kontrol Tarihi Yaklaşan Hastalar</h2>
         </div>
 
         <h5>{{ patientCount }} Hasta</h5>
       </div>
+    </div>
 
-      <div class="patient-list">
-        <div
-          v-for="patient in patients"
-          :key="patient.first_name + patient.last_name"
-          class="patient"
-        >
-          <img
-            :src="patient.photo_url"
-            alt="Patient Photo"
-            class="patient-photo"
-          />
-          <div class="patient-info">
-            <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
-            <p>{{ patient.phone }}</p>
-          </div>
-
-          <button
-            type="button"
-            class="btn btn-outline-secondary"
-            disabled
-          ></button>
+    <div class="patient-list">
+      <hr />
+      <div
+        v-for="patient in patients"
+        :key="patient.first_name + patient.last_name"
+        class="patient"
+      >
+        <img
+          :src="patient.photo_url"
+          alt="Patient Photo"
+          class="patient-photo"
+        />
+        <div class="patient-info">
+          <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
+          <p>{{ patient.phone }}</p>
         </div>
+
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          disabled
+        ></button>
       </div>
     </div>
   </div>
@@ -48,9 +49,12 @@ export default {
 
 <style scoped>
 .header {
-  display: block;
+  display: flex;
 }
 
+h2 {
+  font-size: 16px;
+}
 .title {
   font-size: 24px;
 }
@@ -70,7 +74,7 @@ export default {
   width: 300px;
 }
 h5 {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .patient {

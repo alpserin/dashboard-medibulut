@@ -75,53 +75,55 @@ export default {
 </script>
 
 <template>
-  <div id="app">
-    <TopBar />
-    <div class="container mt-4">
-      <div class="row">
-        <div id="patient-list" class="col-md-3">
-          <PatientListCard
-            :patients="patientsData.data"
-            :patientCount="patientCount"
-          />
-        </div>
-        <div class="col-md-9">
-          <div class="campaign">
-            <div>
-              <font-awesome-icon
-                :icon="['fas', 'bolt']"
-                style="color: #2257b2"
-              />Kampanya için son 10 gün!
-            </div>
-            <button class="btn btn-primary">Detay</button>
+  <div class="dashboard">
+    <div id="app" class="app">
+      <TopBar />
+      <div class="container mt-4">
+        <div class="row">
+          <div id="patient-list" class="col-md-3">
+            <PatientListCard
+              :patients="patientsData.data"
+              :patientCount="patientCount"
+            />
           </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <ControlCard
-                :patientCount="controlCount"
-                :patients="controlsData.data"
-              />
-            </div>
-
-            <div class="col-md-6">
-              <AnnouncementCard
-                :announcements="announcementsData.data"
-                :announcementCount="announcementCount"
-              />
-            </div>
-
-            <div class="col-md-6">
-              <div class="pie-chart">
-                <highcharts :options="pieChartOptions"></highcharts>
+          <div class="col-md-9">
+            <div class="campaign">
+              <div>
+                <font-awesome-icon
+                  :icon="['fas', 'bolt']"
+                  style="color: #2257b2"
+                />Kampanya için son 10 gün!
               </div>
+              <button class="btn btn-primary">Detay</button>
             </div>
 
-            <div class="col-md-6">
-              <CalendarCard
-                :calendar="calendarData.data"
-                :calendarCount="calendarCount"
-              />
+            <div class="row">
+              <div class="col-md-6">
+                <ControlCard
+                  :patientCount="controlCount"
+                  :patients="controlsData.data"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <AnnouncementCard
+                  :announcements="announcementsData.data"
+                  :announcementCount="announcementCount"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <div class="pie-chart">
+                  <highcharts :options="pieChartOptions"></highcharts>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <CalendarCard
+                  :calendar="calendarData.data"
+                  :calendarCount="calendarCount"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -131,37 +133,13 @@ export default {
 </template>
 
 <style scoped>
-html {
+html,
+body {
+  height: 100%;
+  width: 100%;
   background-color: #e6e6e6;
-}
-.dashboard-content {
-  display: flex;
-}
-
-.left-content {
-  width: 25%;
-}
-
-.right-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.top-right {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #333;
-  color: white;
-}
-
-.bottom-right {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .card {
@@ -182,8 +160,5 @@ html {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-}
-
-.pie-chart {
 }
 </style>

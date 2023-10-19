@@ -1,7 +1,9 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h2>Ajanda</h2>
+      <h2>
+        <font-awesome-icon :icon="['far', 'note-sticky']" size="xs" />Ajanda
+      </h2>
 
       <h5>{{ calendarCount }} Hatırlatma</h5>
       <div v-for="cal in calendar" :key="cal.title">
