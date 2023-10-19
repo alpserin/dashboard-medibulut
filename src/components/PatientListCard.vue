@@ -69,7 +69,7 @@ h2 {
   height: 430px;
 }
 .patient-list {
-  height: 300px;
+  height: 280px;
   max-height: 100%;
   min-height: 0;
   font-size: 10px;

@@ -135,11 +135,12 @@ export default {
 <style scoped>
 html,
 body {
-  height: 100%;
   width: 100%;
-  background-color: #e6e6e6;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  min-width: 100%;
+  background-size: contain;
 }
 
 .card {
