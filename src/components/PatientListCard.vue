@@ -5,7 +5,7 @@
         <font-awesome-icon :icon="['far', 'user']" size="lg" class="icon" />
 
         <div>
-          <h2>Hasta Listesi</h2>
+          <h2 class="card-title">Hasta Listesi</h2>
           <h5 class="patientCount">{{ patientCount }} Hasta</h5>
         </div>
       </div>
@@ -16,6 +16,23 @@
       </button>
     </div>
     <hr />
+
+    <div class="patient-search">
+      <div class="search-bar">
+        <font-awesome-icon
+          :icon="['fas', 'magnifying-glass']"
+          style="color: #878787"
+          class="search-icon"
+        />
+        <input
+          type="text"
+          placeholder="Hasta ara..."
+          v-model="searchTerm"
+          class="search-input"
+        />
+      </div>
+    </div>
+
     <div class="patient-list">
       <div
         v-for="patient in patients"
@@ -78,14 +95,14 @@ export default {
   margin-right: 10px;
 }
 
-h2 {
-  font-size: 16px;
+.card-title {
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 3px;
 }
 
 .patientCount {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
   margin: 0px;
 }
@@ -97,7 +114,7 @@ h2 {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 100px;
   height: 40px;
 }
@@ -119,5 +136,35 @@ h5 {
   border-radius: 20px;
   margin-right: 8px;
   margin-top: 3px;
+}
+
+.search-input {
+  border-radius: 5px;
+  border-color: rgb(223, 223, 223);
+  border-width: 1px;
+  background-color: rgb(246, 246, 246);
+  width: 100%;
+  padding-left: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+}
+
+.search-bar {
+  position: relative;
+  margin-bottom: 15px;
+  margin-left: 3px;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-input::placeholder {
+  text-align: left;
 }
 </style>

@@ -27,6 +27,7 @@
           <h5>{{ patient.first_name }} {{ patient.last_name }}</h5>
           <p>{{ patient.phone }}</p>
         </div>
+        <hr />
 
         <button
           type="button"

@@ -9,7 +9,6 @@ import ControlCard from "./components/ControlCard.vue";
 import TreatmentService from "./services/TreatmentService.js";
 import CalendarCard from "./components/CalendarCard.vue";
 import CalendarService from "./services/CalendarService.js";
-import HighchartsVue from "highcharts-vue";
 import { Chart } from "highcharts-vue";
 import { pieChartOptions } from "./pieChartOptions.js";
 
