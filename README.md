@@ -1,13 +1,9 @@
 ## Project Setup
 
 ```sh
+# install dependencies
 npm install
-```
 
-### Start
-
-```sh
+# this will run 'npm run json-server' and 'npm run dev' commands concurrently
 npm start
 ```
-
-This will automatically run both 'json-server' and 'npm run dev' commands
