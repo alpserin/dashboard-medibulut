@@ -1,22 +1,27 @@
 <template>
   <div class="announcement-card">
     <div class="card-body">
-      <h2 class="announcement-card-title">
-        <font-awesome-icon :icon="['fas', 'bullhorn']" size="xs" />Duyurular
-      </h2>
-      <h5 class="announcementCount">{{ announcementCount }} Yeni Duyuru</h5>
+      <div class="header">
+        <font-awesome-icon :icon="['fas', 'bullhorn']" size="xl" class="icon" />
+        <div>
+          <div class="title-container">
+            <h2 class="title">Duyurular</h2>
+            <h5 class="count">{{ announcementCount }} Yeni Duyuru</h5>
+          </div>
+        </div>
+      </div>
 
-      <div v-for="announcement in announcements" :key="announcement.title">
-        <h5 class="announcement-title">{{ announcement.title }}</h5>
-        <p>{{ announcement.body }}</p>
-        <button
-          id="button-d"
-          type="button"
-          class="btn btn-outline-secondary"
-          disabled
-        >
-          Detay
-        </button>
+      <div class="announcements">
+        <div v-for="announcement in announcements" :key="announcement.title">
+          <h5 class="announcement-title">{{ announcement.title }}</h5>
+          <p class="announcement-text">{{ announcement.body }}</p>
+
+          <div class="detail-button-container">
+            <button type="button" class="btn btn-outline-secondary">
+              <div class="detail-button-text">Detay</div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <button id="showAll-button" type="button" class="btn btn-primary">
@@ -39,30 +44,62 @@ export default {
   overflow-y: auto;
 }
 
-.announcement-card-title {
+.header {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 4px;
+  padding-bottom: 10px;
+}
+
+.icon {
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.title {
   font-size: 19px;
   font-weight: 700;
   margin-bottom: 3px;
 }
 
-.announcementCount {
+.count {
   font-size: 15px;
   font-weight: 400;
   color: rgb(112, 112, 112);
 }
 
-#button-d {
-  width: 70px;
+.announcements {
+  margin-top: 20px;
 }
 
 .announcement-title {
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 3px;
+  margin-bottom: 0px;
+}
+
+.announcement-text {
+  margin-bottom: 10px;
+  color: rgb(112, 112, 112);
+}
+
+.detail-button-container {
+  margin-bottom: 20px;
+}
+
+#detail-button {
+  width: 40px;
+  border-color: #ccc;
+}
+
+.detail-button-text {
+  font-weight: 700;
+  font-size: 14px;
 }
 
 #showAll-button {
   width: 100%;
-  margin-top: 39px;
+  margin-top: 4px;
 }
 </style>

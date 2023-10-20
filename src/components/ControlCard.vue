@@ -1,15 +1,11 @@
 <template>
   <div class="control-card">
     <div class="header">
-      <font-awesome-icon
-        :icon="['far', 'calendar']"
-        size="xl"
-        class="control-icon"
-      />
+      <font-awesome-icon :icon="['far', 'calendar']" size="xl" class="icon" />
       <div>
         <div class="title-container">
           <h2 class="title">Kontrol Tarihi Yaklaşan Hastalar</h2>
-          <h5 class="patientCount">{{ patientCount }} Hasta</h5>
+          <h5 class="count">{{ patientCount }} Hasta</h5>
         </div>
       </div>
     </div>
@@ -73,7 +69,7 @@ export default {
   padding-bottom: 10px;
 }
 
-.control-icon {
+.icon {
   margin-top: 8px;
   margin-right: 8px;
 }
@@ -84,7 +80,7 @@ export default {
   margin-bottom: 3px;
 }
 
-.patientCount {
+.count {
   font-size: 15px;
   font-weight: 400;
   color: rgb(112, 112, 112);
