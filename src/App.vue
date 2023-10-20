@@ -19,6 +19,7 @@ export default {
     ControlCard,
     CalendarCard,
     highcharts: Chart,
+    TopBar,
   },
   data() {
     return {
@@ -73,8 +74,6 @@ export default {
 <template>
   <div class="dashboard">
     <div id="app" class="app">
-      <TopBar />
-
       <div class="row">
         <div id="patient-list-card" class="col-md-3">
           <PatientListCard
@@ -85,13 +84,7 @@ export default {
         <div class="col-md-9">
           <div class="right-side">
             <div class="campaign">
-              <div>
-                <font-awesome-icon
-                  :icon="['fas', 'bolt']"
-                  style="color: #2257b2"
-                />Kampanya için son 10 gün!
-              </div>
-              <button class="btn btn-primary">Detay</button>
+              <TopBar />
             </div>
 
             <div class="fast-access">
@@ -174,17 +167,6 @@ export default {
   display: flex;
 }
 
-.campaign {
-  background-color: white;
-  padding: 7px;
-  display: flex;
-  border-radius: 5px;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  margin-left: 8px;
-}
-
 .fast-access {
   display: flex;
   justify-content: space-between;
@@ -212,10 +194,14 @@ strong {
 .treatment-card {
   overflow-x: hidden;
   overflow-y: hidden;
+  width: 400px;
+  padding: 0;
 }
 
 .pie-chart {
-  width: 410px;
-  height: 360px;
+  width: 427px;
+  transform: translateX(-3%);
+  height: 380px;
+  margin: 0;
 }
 </style>
