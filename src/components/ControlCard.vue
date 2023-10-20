@@ -139,6 +139,6 @@ export default {
 
 #showAll-button {
   width: 100%;
-  margin-top: 47px;
+  margin-top: 87px;
 }
 </style>

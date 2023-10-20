@@ -39,7 +39,7 @@
                 >
                   <div class="reminder-title-body">
                     <h5>{{ cal.title }}</h5>
-                    <p>{{ cal.body }}</p>
+                    <p class="reminder-parag">{{ cal.body }}</p>
                   </div>
                   <button
                     type="button"
@@ -55,6 +55,9 @@
         </div>
       </div>
     </div>
+    <button id="showAll-button" type="button" class="btn btn-primary">
+      Tümünü Göster
+    </button>
   </div>
 </template>
 
@@ -97,8 +100,11 @@ export default {
 </script>
 
 <style scoped>
+.calendar-card {
+}
+
 .card-body {
-  overflow-y: hidden;
+  height: 260px;
 }
 
 .header {
@@ -146,7 +152,7 @@ export default {
 .reminder-list {
   margin-top: 10px;
   overflow-y: auto;
-  height: 310px;
+  height: 320px;
 }
 
 .reminder-container {
@@ -185,6 +191,13 @@ export default {
   position: relative;
 }
 
+.reminder-parag {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: rgb(129, 129, 129);
+}
+
 #dot-button {
   border-radius: 100px;
   border-color: #ccc;
@@ -208,5 +221,10 @@ export default {
 
 h5 {
   font-size: 14px;
+}
+
+#showAll-button {
+  width: 100%;
+  margin-top: 60px;
 }
 </style>

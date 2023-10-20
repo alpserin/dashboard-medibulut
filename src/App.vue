@@ -122,8 +122,10 @@ export default {
 
             <div class="bottom-cards">
               <div id="card" class="col-md-6">
-                <div class="pie-chart">
-                  <highcharts :options="pieChartOptions"></highcharts>
+                <div class="treatment-card">
+                  <div class="pie-chart">
+                    <highcharts :options="pieChartOptions"></highcharts>
+                  </div>
                 </div>
               </div>
 
@@ -159,7 +161,7 @@ export default {
 #card {
   width: 440px;
   background-color: white;
-  height: 430px;
+  height: 470px;
   padding: 20px;
   overflow-y: auto;
 }
@@ -207,7 +209,13 @@ strong {
   margin: 10px;
 }
 
+.treatment-card {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .pie-chart {
-  width: 430px;
+  width: 410px;
+  height: 360px;
 }
 </style>
