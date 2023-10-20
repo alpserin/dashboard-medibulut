@@ -15,17 +15,44 @@
         </div>
       </div>
 
-      <button @click="addNewPatient" class="add-button">
+      <button @click="addNew" class="add-button">
         <font-awesome-icon :icon="['fas', 'plus']" />
         Yeni Ekle
       </button>
     </div>
 
     <div class="card-body">
-      <div v-for="cal in calendar" :key="cal.title">
-        <div>{{ formatDate(cal.data) }}</div>
-        <h5>{{ cal.title }}</h5>
-        <p>{{ cal.body }}</p>
+      <div class="reminder-list">
+        <div v-for="(group, date) in groupedCalendar" :key="date">
+          <div class="reminder">
+            <div class="date-header">
+              <div class="day">{{ formatDate(date).day }}</div>
+              <div class="date">{{ formatDate(date).date }}</div>
+            </div>
+
+            <div class="reminder-container">
+              <div>
+                <div
+                  v-for="cal in group"
+                  :key="cal.title"
+                  class="reminder-text"
+                >
+                  <div class="reminder-title-body">
+                    <h5>{{ cal.title }}</h5>
+                    <p>{{ cal.body }}</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    id="dot-button"
+                  >
+                    <strong><strong>...</strong></strong>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -49,15 +76,28 @@ export default {
       // Split and rearrange formatted date
       // We want to show 'Pzr 18' instead of '18 Pzr'
       const parts = formattedDate.split(" ");
-      return `${parts[1]} ${parts[0]}`;
+      return { day: parts[1], date: parts[0] };
+    },
+  },
+  computed: {
+    // Group the reminders that have the same date
+    groupedCalendar() {
+      const grouped = {};
+      this.calendar.forEach((event) => {
+        const date = event.data;
+        if (!grouped[date]) {
+          grouped[date] = [];
+        }
+        grouped[date].push(event);
+      });
+      return grouped;
     },
   },
 };
 </script>
 
 <style scoped>
-.calendar-card {
-  overflow-y: auto;
+.card-body {
   overflow-y: hidden;
 }
 
@@ -101,6 +141,65 @@ export default {
   border-radius: 8px;
   width: 100px;
   height: 40px;
+}
+
+.reminder-list {
+  margin-top: 10px;
+  overflow-y: auto;
+  height: 310px;
+}
+
+.reminder-container {
+  width: 100%;
+}
+
+.reminder {
+  display: flex;
+  width: 100%;
+}
+
+.date-header {
+  width: 40px;
+  margin-top: 12px;
+  margin-right: 3px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.day {
+  color: rgb(145, 145, 145);
+}
+
+.reminder-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px #d9d9d9;
+  width: 100%;
+  height: 100%;
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-bottom: 0px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  position: relative;
+}
+
+#dot-button {
+  border-radius: 100px;
+  border-color: #ccc;
+  margin-top: 12px;
+  margin-right: 7px;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  transform: translateY(-30%);
+}
+
+#dot-button strong {
+  display: block;
+  margin-top: -9px;
+  margin-left: -3px;
 }
 
 #button-d {
