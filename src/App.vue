@@ -104,7 +104,6 @@ export default {
                   :patients="controlsData.data"
                 />
               </div>
-
               <div id="card" class="col-md-6">
                 <AnnouncementCard
                   :announcements="announcementsData.data"
@@ -139,10 +138,19 @@ export default {
 <style scoped>
 .dashboard {
   overflow-x: hidden;
+  min-height: 100vh;
+  height: 100%;
+}
+
+#app {
+  min-height: 100vh;
+  height: 100%;
 }
 
 .row {
   background-color: rgb(242, 244, 248);
+  min-height: 100vh;
+  height: 100%;
 }
 
 .right-side {
