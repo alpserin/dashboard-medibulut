@@ -1,15 +1,15 @@
 {
   "data": [
     {
-      "title": "Diş Çekimi",
+      "title": "Tooth Extraction",
       "count": 70
     },
     {
-      "title": "Amalgam Dolgu",
+      "title": "Amalgam Filling",
       "count": 14
     },
     {
-      "title": "Kanal Tedavisi",
+      "title": "Root Canal Treatment",
       "count": 5
     }
   ]

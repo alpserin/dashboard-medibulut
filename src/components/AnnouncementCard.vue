@@ -5,8 +5,8 @@
         <font-awesome-icon :icon="['fas', 'bullhorn']" size="xl" class="icon" />
         <div>
           <div class="title-container">
-            <h2 class="title">Duyurular</h2>
-            <h5 class="count">{{ announcementCount }} Yeni Duyuru</h5>
+            <h2 class="title">Announcements</h2>
+            <h5 class="count">{{ announcementCount }} New Announcements</h5>
           </div>
         </div>
       </div>
@@ -18,15 +18,17 @@
 
           <div class="detail-button-container">
             <button type="button" class="btn btn-outline-secondary">
-              <div class="detail-button-text">Detay</div>
+              <div class="detail-button-text">Details</div>
             </button>
           </div>
         </div>
       </div>
     </div>
-    <button id="showAll-button" type="button" class="btn btn-primary">
-      Tümünü Göster
-    </button>
+    <div>
+      <button id="showAll-button" type="button" class="btn btn-primary">
+        Show All
+      </button>
+    </div>
   </div>
 </template>
 
@@ -40,8 +42,8 @@ export default {
 </script>
 
 <style scoped>
-.announcement-card {
-  overflow-y: auto;
+.card-body {
+  height: 260px;
 }
 
 .header {
@@ -71,6 +73,8 @@ export default {
 
 .announcements {
   margin-top: 20px;
+  overflow-y: auto;
+  height: 320px;
 }
 
 .announcement-title {
@@ -100,6 +104,6 @@ export default {
 
 #showAll-button {
   width: 100%;
-  margin-top: 44px;
+  margin-top: 133px;
 }
 </style>

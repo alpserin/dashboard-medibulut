@@ -5,14 +5,14 @@
         <font-awesome-icon :icon="['far', 'user']" size="lg" class="icon" />
 
         <div>
-          <h2 class="card-title">Hasta Listesi</h2>
-          <h5 class="patientCount">{{ patientCount }} Hasta</h5>
+          <h2 class="card-title">Patient List</h2>
+          <h5 class="patientCount">{{ patientCount }} Patients</h5>
         </div>
       </div>
 
-      <button @click="addNewPatient" class="add-button">
+      <button @click="addNewPatient()" class="add-button">
         <font-awesome-icon :icon="['fas', 'plus']" />
-        Yeni Hasta
+        New Patient
       </button>
     </div>
     <hr />
@@ -26,7 +26,7 @@
         />
         <input
           type="text"
-          placeholder="Hasta ara..."
+          placeholder="Search for a patient"
           v-model="searchTerm"
           class="search-input"
         />
@@ -62,6 +62,11 @@ export default {
   props: {
     patients: Array,
     patientCount: Number,
+  },
+  methods: {
+    addNewPatient() {
+      this.$emit("toggle-add-patient");
+    },
   },
 };
 </script>
@@ -121,11 +126,18 @@ export default {
   background-color: rgb(30, 33, 33);
   color: white;
   border: none;
-  padding: 5px 10px;
   cursor: pointer;
   border-radius: 8px;
   width: 100px;
   height: 40px;
+}
+
+.add-button:hover {
+  background-color: rgb(71, 71, 71);
+}
+
+.add-button:active {
+  background-color: rgb(13, 42, 158);
 }
 
 .patient-name {

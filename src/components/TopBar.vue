@@ -2,11 +2,11 @@
   <div class="top-bar">
     <h2 class="title">
       <font-awesome-icon :icon="['fas', 'bolt']" />
-      Kampanya İçin Son 10 Gün - Online Randevu ve Tele-Tıp Platformumuz Açıldı!
+      Last 3 Days for the Campaign - Our Online Appointment Platform is Open!
     </h2>
     <div class="button">
       <button id="detail-button" type="button" class="btn btn-primary btn-sm">
-        Detay
+        Details
       </button>
     </div>
   </div>

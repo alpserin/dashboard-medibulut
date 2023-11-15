@@ -1,25 +1,24 @@
 {
-    "data": [
-        {
-            "title": "Lab Akademi",
-            "body": "Protez için Lab Akademi ile görüşülecek.",
-            "data": "2023-10-18"
-        },
-        {
-            "title": "Kira Zammı",
-            "body": "Mal sahibi ile kira zammı konuşulacak.",
-            "data": "2023-10-19"
-        },
-        {
-            "title": "Sevgi Çetin",
-            "body": "Protez ödemeleri için son gün 10 Ekim. Kardeşinin haberi var. Bilgilendir.",
-            "data": "2023-10-19"
-        },
-        {
-            "title": "Berk Ali Akgün",
-            "body": "İş görüşmesi için sonuç bekliyor.",
-            "data": "2023-10-20"
-        }
-
-    ]
+  "data": [
+    {
+      "title": "Dental Symposium",
+      "body": "Will contact the Dental Symposium for the latest advancements in dental care.",
+      "date": "2023-10-18"
+    },
+    {
+      "title": "Patient Appointment",
+      "body": "Discussion with Mrs. Parker about potential adjustments to her dental treatment plan.",
+      "date": "2023-10-19"
+    },
+    {
+      "title": "Dr. Olivia Mitchell",
+      "body": "Reminder: Deadline for prosthetic payments is October 10. Dr. Mitchell's sibling is aware. Please share any updates.",
+      "date": "2023-10-19"
+    },
+    {
+      "title": "Dr. Ethan Reynolds",
+      "body": "Awaiting the outcome of a recent dental research grant application.",
+      "date": "2023-10-20"
+    }
+  ]
 }

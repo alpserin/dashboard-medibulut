@@ -9,15 +9,15 @@
         />
         <div>
           <div class="title-container">
-            <h2 class="title">Ajanda</h2>
-            <h5 class="count">{{ calendarCount }} Hatırlatma</h5>
+            <h2 class="title">Calendar</h2>
+            <h5 class="count">{{ calendarCount }} Reminders</h5>
           </div>
         </div>
       </div>
 
       <button @click="addNew" class="add-button">
         <font-awesome-icon :icon="['fas', 'plus']" />
-        Yeni Ekle
+        Add New
       </button>
     </div>
 
@@ -55,9 +55,11 @@
         </div>
       </div>
     </div>
-    <button id="showAll-button" type="button" class="btn btn-primary">
-      Tümünü Göster
-    </button>
+    <div>
+      <button id="showAll-button" type="button" class="btn btn-primary">
+        Show All
+      </button>
+    </div>
   </div>
 </template>
 
@@ -74,7 +76,7 @@ export default {
         day: "numeric",
       };
       const date = new Date(dateString);
-      const formattedDate = date.toLocaleDateString("tr-TR", options);
+      const formattedDate = date.toLocaleDateString("en-US", options);
 
       // Split and rearrange formatted date
       // We want to show 'Pzr 18' instead of '18 Pzr'
@@ -87,7 +89,7 @@ export default {
     groupedCalendar() {
       const grouped = {};
       this.calendar.forEach((event) => {
-        const date = event.data;
+        const date = event.date;
         if (!grouped[date]) {
           grouped[date] = [];
         }
@@ -100,9 +102,6 @@ export default {
 </script>
 
 <style scoped>
-.calendar-card {
-}
-
 .card-body {
   height: 260px;
 }

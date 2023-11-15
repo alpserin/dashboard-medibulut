@@ -36,6 +36,8 @@ export default {
       calendarCount: 0,
 
       pieChartOptions: pieChartOptions,
+
+      showAddPatient: false,
     };
   },
 
@@ -68,6 +70,11 @@ export default {
       this.calendarCount = this.calendarData.data.length;
     });
   },
+  methods: {
+    toggleAddPatient() {
+      this.showAddPatient = !this.showAddPatient;
+    },
+  },
 };
 </script>
 
@@ -76,9 +83,21 @@ export default {
     <div id="app" class="app">
       <div class="row">
         <div id="patient-list-card" class="col-md-3">
+          <div v-show="showAddPatient" class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default"
+              >First Name</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
           <PatientListCard
             :patients="patientsData.data"
             :patientCount="patientCount"
+            @toggle-add-patient="toggleAddPatient"
           />
         </div>
         <div class="col-md-9">
@@ -88,11 +107,11 @@ export default {
             </div>
 
             <div class="fast-access">
-              <h5 class="fast-access-text">Hızlı Erişim</h5>
+              <h5 class="fast-access-text">Fast Access</h5>
               <div>
                 <button type="button" class="btn btn-light">
                   <font-awesome-icon :icon="['fas', 'shapes']" />
-                  <strong>Düzen</strong>
+                  <strong>Layout</strong>
                 </button>
               </div>
             </div>
@@ -138,11 +157,6 @@ export default {
 <style scoped>
 .dashboard {
   overflow-x: hidden;
-  min-height: 100vh;
-  height: 100%;
-}
-
-#app {
   min-height: 100vh;
   height: 100%;
 }

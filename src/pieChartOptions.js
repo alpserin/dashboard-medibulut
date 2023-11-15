@@ -9,7 +9,7 @@ export const pieChartOptions = {
     },
   },
   title: {
-    text: "Uygulanan Tedaviler",
+    text: "Treatments Applied",
   },
   tooltip: {
     pointFormat: "{point.y} {y} ",

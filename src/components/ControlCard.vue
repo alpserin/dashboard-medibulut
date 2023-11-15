@@ -1,50 +1,54 @@
 <template>
   <div class="control-card">
-    <div class="header">
-      <font-awesome-icon :icon="['far', 'calendar']" size="xl" class="icon" />
-      <div>
-        <div class="title-container">
-          <h2 class="title">Kontrol Tarihi Yaklaşan Hastalar</h2>
-          <h5 class="count">{{ patientCount }} Hasta</h5>
+    <div class="card-body">
+      <div class="header">
+        <font-awesome-icon :icon="['far', 'calendar']" size="xl" class="icon" />
+        <div>
+          <div class="title-container">
+            <h2 class="title">Patients with Approaching Control Dates</h2>
+            <h5 class="count">{{ patientCount }} Patients</h5>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="patient-list">
-      <div
-        v-for="patient in patients"
-        :key="patient.first_name + patient.last_name"
-      >
-        <div class="patient">
-          <div class="patient-container">
-            <img
-              :src="patient.photo_url"
-              alt="Patient Photo"
-              class="patient-photo"
-            />
-            <div class="v">
-              <h5 class="patient-name">
-                {{ patient.first_name }} {{ patient.last_name }}
-              </h5>
-              <p class="patient-phone">{{ patient.phone }}</p>
+      <div class="patient-list">
+        <div
+          v-for="patient in patients"
+          :key="patient.first_name + patient.last_name"
+        >
+          <div class="patient">
+            <div class="patient-container">
+              <img
+                :src="patient.photo_url"
+                alt="Patient Photo"
+                class="patient-photo"
+              />
+              <div class="v">
+                <h5 class="patient-name">
+                  {{ patient.first_name }} {{ patient.last_name }}
+                </h5>
+                <p class="patient-phone">{{ patient.phone }}</p>
+              </div>
+            </div>
+            <hr />
+            <div>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                id="dot-button"
+              >
+                <strong><strong>...</strong></strong>
+              </button>
             </div>
           </div>
-          <hr />
-          <div>
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              id="dot-button"
-            >
-              <strong><strong>...</strong></strong>
-            </button>
-          </div>
         </div>
       </div>
     </div>
-    <button id="showAll-button" type="button" class="btn btn-primary">
-      Tümünü Göster
-    </button>
+    <div class="showAll-container">
+      <button id="showAll-button" type="button" class="btn btn-primary">
+        Show All
+      </button>
+    </div>
   </div>
 </template>
 
@@ -58,9 +62,6 @@ export default {
 </script>
 
 <style scoped>
-.control-card {
-  overflow-y: auto;
-}
 .header {
   display: flex;
   border-bottom: 1px solid #ccc;
@@ -139,6 +140,5 @@ export default {
 
 #showAll-button {
   width: 100%;
-  margin-top: 87px;
 }
 </style>
