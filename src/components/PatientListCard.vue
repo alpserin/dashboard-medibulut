@@ -16,40 +16,41 @@
       </button>
     </div>
     <hr />
-
-    <div class="patient-search">
-      <div class="search-bar">
-        <font-awesome-icon
-          :icon="['fas', 'magnifying-glass']"
-          style="color: #878787"
-          class="search-icon"
-        />
-        <input
-          type="text"
-          placeholder="Search for a patient"
-          v-model="searchTerm"
-          class="search-input"
-        />
-      </div>
-    </div>
-
-    <div class="patient-list">
-      <div
-        v-for="patient in patients"
-        :key="patient.first_name + patient.last_name"
-        class="patient"
-      >
-        <div class="patient-container">
-          <img
-            :src="patient.photo_url"
-            alt="Patient Photo"
-            class="patient-photo"
+    <div class="card-body">
+      <div class="patient-search">
+        <div class="search-bar">
+          <font-awesome-icon
+            :icon="['fas', 'magnifying-glass']"
+            style="color: #878787"
+            class="search-icon"
           />
-          <div class="patient-info">
-            <h5 class="patient-name">
-              {{ patient.first_name }} {{ patient.last_name }}
-            </h5>
-            <p class="patient-phone">{{ patient.phone }}</p>
+          <input
+            type="text"
+            placeholder="Search for a patient"
+            v-model="searchTerm"
+            class="search-input"
+          />
+        </div>
+      </div>
+
+      <div class="patient-list">
+        <div
+          v-for="patient in patients"
+          :key="patient.first_name + patient.last_name"
+          class="patient"
+        >
+          <div class="patient-container">
+            <img
+              :src="patient.photo_url"
+              alt="Patient Photo"
+              class="patient-photo"
+            />
+            <div class="patient-info">
+              <h5 class="patient-name">
+                {{ patient.first_name }} {{ patient.last_name }}
+              </h5>
+              <p class="patient-phone">{{ patient.phone }}</p>
+            </div>
           </div>
         </div>
       </div>

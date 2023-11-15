@@ -1,17 +1,16 @@
 <template>
   <div class="announcement-card">
-    <div class="card-body">
-      <div class="header">
-        <font-awesome-icon :icon="['fas', 'bullhorn']" size="xl" class="icon" />
-        <div>
-          <div class="title-container">
-            <h2 class="title">Announcements</h2>
-            <h5 class="count">{{ announcementCount }} New Announcements</h5>
-          </div>
+    <div class="header">
+      <font-awesome-icon :icon="['fas', 'bullhorn']" size="xl" class="icon" />
+      <div>
+        <div class="title-container">
+          <h2 class="title">Announcements</h2>
+          <h5 class="count">{{ announcementCount }} New Announcements</h5>
         </div>
       </div>
-
-      <div class="announcements">
+    </div>
+    <div class="card-body">
+      <div class="announcement-list">
         <div v-for="announcement in announcements" :key="announcement.title">
           <h5 class="announcement-title">{{ announcement.title }}</h5>
           <p class="announcement-text">{{ announcement.body }}</p>
@@ -42,8 +41,15 @@ export default {
 </script>
 
 <style scoped>
+.announcement-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .card-body {
-  height: 260px;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .header {
@@ -71,10 +77,8 @@ export default {
   color: rgb(112, 112, 112);
 }
 
-.announcements {
-  margin-top: 20px;
-  overflow-y: auto;
-  height: 320px;
+.announcement-list {
+  margin-top: 10px;
 }
 
 .announcement-title {
@@ -104,6 +108,5 @@ export default {
 
 #showAll-button {
   width: 100%;
-  margin-top: 133px;
 }
 </style>

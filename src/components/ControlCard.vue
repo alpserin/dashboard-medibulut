@@ -1,16 +1,15 @@
 <template>
   <div class="control-card">
-    <div class="card-body">
-      <div class="header">
-        <font-awesome-icon :icon="['far', 'calendar']" size="xl" class="icon" />
-        <div>
-          <div class="title-container">
-            <h2 class="title">Patients with Approaching Control Dates</h2>
-            <h5 class="count">{{ patientCount }} Patients</h5>
-          </div>
+    <div class="header">
+      <font-awesome-icon :icon="['far', 'calendar']" size="xl" class="icon" />
+      <div>
+        <div class="title-container">
+          <h2 class="title">Patients with Approaching Control Dates</h2>
+          <h5 class="count">{{ patientCount }} Patients</h5>
         </div>
       </div>
-
+    </div>
+    <div class="card-body">
       <div class="patient-list">
         <div
           v-for="patient in patients"
@@ -44,7 +43,7 @@
         </div>
       </div>
     </div>
-    <div class="showAll-container">
+    <div class="show-container">
       <button id="showAll-button" type="button" class="btn btn-primary">
         Show All
       </button>
@@ -62,6 +61,17 @@ export default {
 </script>
 
 <style scoped>
+.control-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-body {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px; /* Set a fixed height for the card-body */
+}
 .header {
   display: flex;
   border-bottom: 1px solid #ccc;
@@ -136,6 +146,10 @@ export default {
   display: block;
   margin-top: -9px;
   margin-left: -3px;
+}
+
+.show-container {
+  margin-top: auto;
 }
 
 #showAll-button {

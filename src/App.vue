@@ -81,71 +81,69 @@ export default {
 <template>
   <div class="dashboard">
     <div id="app" class="app">
-      <div class="row">
-        <div id="patient-list-card" class="col-md-3">
-          <div v-show="showAddPatient" class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default"
-              >First Name</span
-            >
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-            />
-          </div>
-          <PatientListCard
-            :patients="patientsData.data"
-            :patientCount="patientCount"
-            @toggle-add-patient="toggleAddPatient"
+      <div id="patient-list-card" class="col-md-3">
+        <div v-show="showAddPatient" class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >First Name</span
+          >
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
           />
         </div>
-        <div class="col-md-9">
-          <div class="right-side">
-            <div class="campaign">
-              <TopBar />
-            </div>
+        <PatientListCard
+          :patients="patientsData.data"
+          :patientCount="patientCount"
+          @toggle-add-patient="toggleAddPatient"
+        />
+      </div>
+      <div class="col-md-9">
+        <div class="right-side">
+          <div class="campaign">
+            <TopBar />
+          </div>
 
-            <div class="fast-access">
-              <h5 class="fast-access-text">Fast Access</h5>
-              <div>
-                <button type="button" class="btn btn-light">
-                  <font-awesome-icon :icon="['fas', 'shapes']" />
-                  <strong>Layout</strong>
-                </button>
-              </div>
+          <div class="fast-access">
+            <h5 class="fast-access-text">Fast Access</h5>
+            <div>
+              <button type="button" class="btn btn-light">
+                <font-awesome-icon :icon="['fas', 'shapes']" />
+                <strong>Layout</strong>
+              </button>
             </div>
+          </div>
 
-            <div class="top-cards">
-              <div id="card" class="col-md-6">
-                <ControlCard
-                  :patientCount="controlCount"
-                  :patients="controlsData.data"
-                />
-              </div>
-              <div id="card" class="col-md-6">
-                <AnnouncementCard
-                  :announcements="announcementsData.data"
-                  :announcementCount="announcementCount"
-                />
-              </div>
+          <div class="top-cards">
+            <div id="card" class="col-md-6">
+              <ControlCard
+                :patientCount="controlCount"
+                :patients="controlsData.data"
+              />
             </div>
+            <div id="card" class="col-md-6">
+              <AnnouncementCard
+                :announcements="announcementsData.data"
+                :announcementCount="announcementCount"
+              />
+            </div>
+          </div>
 
-            <div class="bottom-cards">
-              <div id="card" class="col-md-6">
-                <div class="treatment-card">
-                  <div class="pie-chart">
-                    <highcharts :options="pieChartOptions"></highcharts>
-                  </div>
+          <div class="bottom-cards">
+            <div id="card" class="col-md-6">
+              <div class="treatment-card">
+                <div class="pie-chart">
+                  <highcharts :options="pieChartOptions"></highcharts>
                 </div>
               </div>
+            </div>
 
-              <div id="card" class="col-md-6">
-                <CalendarCard
-                  :calendar="calendarData.data"
-                  :calendarCount="calendarCount"
-                />
-              </div>
+            <div id="card" class="col-md-6">
+              <CalendarCard
+                :calendar="calendarData.data"
+                :calendarCount="calendarCount"
+              />
             </div>
           </div>
         </div>
@@ -159,18 +157,25 @@ export default {
   overflow-x: hidden;
   min-height: 100vh;
   height: 100%;
+  background-color: rgb(242, 244, 248);
+}
+
+.app {
+  display: flex;
 }
 
 .row {
-  background-color: rgb(242, 244, 248);
   min-height: 100vh;
   height: 100%;
+}
+
+.col-md-9 {
+  margin-left: 100px;
 }
 
 .right-side {
   display: block;
   justify-content: space-around;
-  margin-left: 120px;
 }
 
 #card {
@@ -192,7 +197,7 @@ export default {
 .fast-access {
   display: flex;
   justify-content: space-between;
-  margin-right: 20px;
+  margin-right: 225px;
   margin-left: 8px;
   margin-top: 18px;
 }

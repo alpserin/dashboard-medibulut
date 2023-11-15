@@ -102,8 +102,15 @@ export default {
 </script>
 
 <style scoped>
+.calendar-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .card-body {
-  height: 260px;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .header {
@@ -150,7 +157,6 @@ export default {
 
 .reminder-list {
   margin-top: 10px;
-  overflow-y: auto;
   height: 320px;
 }
 
@@ -224,6 +230,5 @@ h5 {
 
 #showAll-button {
   width: 100%;
-  margin-top: 60px;
 }
 </style>
